@@ -1,0 +1,1 @@
+<h2>Add new note</h2>
