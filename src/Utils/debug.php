@@ -11,10 +11,13 @@ function dump($var)
   </br>
   <div 
     style="
-      display: inline-block;
+      width: 25%;
+      left: 0;
+      right: 0;
+      margin: auto;
       background-color: lightgray;
       padding: 5px 10px;
-      border: 1px solid black;
+      border: 1px dashed black;
       margin-top: 1px;
     "
   >
