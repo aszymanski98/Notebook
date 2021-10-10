@@ -9,7 +9,7 @@ body {
 
 .wrapper {
   width: 100%;
-  max-width: 1400px;
+  max-width: 2560px;
   margin: 0 auto;
   display: flex;
   flex-direction: column;
@@ -32,8 +32,12 @@ h1 {
 
 form {
   background-color: white;
-  padding: 30px 30px 20px 30px;
+  padding: 20px 10px;
   color: #222;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: 100%;
 }
 
 form li {
@@ -44,7 +48,7 @@ form li {
 }
 
 form label {
-  margin: 0 0 3px 0;
+  margin: 10px 0px;
   padding: 0px;
   display: block;
   color: #222;
@@ -85,6 +89,7 @@ ul a:hover {
 
 .page {
   width: 100%;
+  height: 100%;
   text-align: center;
 }
 
@@ -102,7 +107,7 @@ select {
   border: 1px solid #bebebe;
   padding: 7px;
   margin: 0px;
-  transition: all 0.3s ease-in-out;
+  transition: box-shadow 0.3s ease-in-out;
   outline: none;
 }
 
@@ -122,10 +127,11 @@ form select:focus {
 
 form .field-long {
   width: 100%;
+  max-width: 500px;
 }
 
 form .field-textarea {
-  height: 100px;
+  height: 200px;
 }
 
 form input[type="submit"],
@@ -135,7 +141,8 @@ form input[type="button"] {
   color: #fff;
   font-size: 18px;
   text-transform: uppercase;
-  padding: 12 40px;
+  padding: 15px 40px;
+  margin-top: 35px;
 }
 
 form input[type="submit"]:hover,
