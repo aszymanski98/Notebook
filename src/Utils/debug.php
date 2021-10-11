@@ -11,7 +11,7 @@ function dump($var)
   </br>
   <div 
     style="
-      width: 25%;
+      width: fit-content;
       left: 0;
       right: 0;
       margin: auto;
