@@ -28,6 +28,17 @@ class Database
     }
   }
 
+  public function getNotes(): array
+  {
+    try {
+      $query = "SELECT id, title, inserted_ts FROM notes";
+      $result = $this->conn->query($query);
+      return $result->fetchAll(PDO::FETCH_ASSOC);
+    } catch (Throwable $e) {
+      throw new StorageException('Failed getting notes data', 400, $e);
+    }
+  }
+
   public function createNote(array $data): void
   {
     try {

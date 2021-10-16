@@ -233,27 +233,6 @@ td {
   color: #222;
 }
 
-tr > td:nth-child(1) {
-  width: 50px;
-}
-
-tr > th:nth-child(1) {
-  width: 50px;
-}
-
-tr > td:nth-child(2) {
-  width: 50%;
-  text-align: left;
-}
-
-tr > th:nth-child(2) {
-  width: 50%;
-}
-
-tr > td:nth-child(3) {
-  font-style: italic;
-}
-
 .error {
   text-align: center;
   font-weight: 700;

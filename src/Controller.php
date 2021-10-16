@@ -40,26 +40,35 @@ class Controller
 
   public function run(): void
   {
-    $viewParams = [];
-
     switch ($this->action()) {
       case 'create':
         $page = 'create';
-        $created = false;
 
         $data = $this->getRequestPost();
 
         if (!empty($data)) {
-          $created = true;
-          $this->database->createNote($data);
-          header('Location: /');
+          $this->database->createNote(
+            [
+              'title' => $data['title'],
+              'description' => $data['description']
+            ]
+          );
+
+          header('Location: /?before=created');
         }
 
-        $viewParams['created'] = $created;
+        $viewParams = [];
         break;
       default:
         $page = 'list';
-        $viewParams['resultList'] = 'Here list';
+
+        $data = $this->getRequestGet();
+
+        $viewParams = [
+          'notes' => $this->database->getNotes(),
+          'before' => $data['before'] ?? null
+        ];
+
         break;
     }
 
