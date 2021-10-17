@@ -14,6 +14,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  background: white;
 }
 
 h1 {
@@ -28,6 +29,14 @@ h1 {
 
 .far {
   margin-right: 20px;
+}
+
+.details {
+  padding: 20px 10px;
+}
+
+.details li {
+  padding: 10px;
 }
 
 form {
@@ -48,6 +57,9 @@ form li {
 }
 
 form label {
+  text-align: center;
+  font-weight: 300;
+  font-size: 14px;
   margin: 10px 0px;
   padding: 0px;
   display: block;
@@ -85,6 +97,10 @@ ul a:hover {
   flex-direction: column;
   align-items: stretch;
   flex-grow: 1;
+}
+
+.details {
+  flex-direction: column;
 }
 
 .page {
@@ -210,9 +226,20 @@ table {
 .tbl-content {
   overflow-x: auto;
   margin-top: 0px;
-  border: 3px solid cadetblue;
+  border-bottom: 58px solid cadetblue;
   color: #222;
   background-color: white;
+}
+
+h2 {
+  background-color: cadetblue;
+  padding: 20px 15px;
+  text-align: center;
+  font-weight: 500;
+  font-size: 14px;
+  color: #fff;
+  text-transform: uppercase;
+  margin: 0;
 }
 
 th {

@@ -5,8 +5,10 @@ declare(strict_types=1);
 namespace App;
 
 require_once("./src/Exception/ConfigurationException.php");
+require_once("./src/Exception/NotFoundException.php");
 
 use App\Exception\ConfigurationException;
+use App\Exception\NotFoundException;
 
 require_once("./src/Database.php");
 require_once('./src/View.php');
@@ -55,9 +57,33 @@ class Controller
           );
 
           header('Location: /?before=created');
+          exit;
         }
 
         $viewParams = [];
+        break;
+
+      case 'show':
+        $page = 'show';
+        $data = $this->getRequestGet();
+        $noteId = (int) ($data['id'] ?? null);
+
+        if (!$noteId) {
+          header('Location: /?error=missingNoteId');
+          exit;
+        }
+
+        try {
+          $note = $this->database->getNote($noteId);
+        } catch (NotFoundException $e) {
+          header('Location: /?error=noteNotFound');
+          exit;
+        }
+
+        $viewParams = [
+          'note' => $note
+        ];
+
         break;
       default:
         $page = 'list';
@@ -66,7 +92,8 @@ class Controller
 
         $viewParams = [
           'notes' => $this->database->getNotes(),
-          'before' => $data['before'] ?? null
+          'before' => $data['before'] ?? null,
+          'error' => $data['error'] ?? null
         ];
 
         break;
