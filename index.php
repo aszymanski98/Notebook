@@ -2,13 +2,17 @@
 
 declare(strict_types=1);
 
-namespace App;
+spl_autoload_register(function (string $classNamespace) {
+  $path = str_replace(['\\', 'App/'], ['/', ''], $classNamespace);
+  $path = "src/$path.php";
+  require_once($path);
+});
 
 require_once("./src/Utils/debug.php");
-require_once("./src/NoteController.php");
-require_once("./src/Request.php");
-require_once("./src/Exception/AppException.php");
 
+use App\Request;
+use App\Controller\AbstractController;
+use App\Controller\NoteController;
 use App\Exception\AppException;
 use App\Exception\ConfigurationException;
 
