@@ -7,10 +7,10 @@
     <h2>Note details</h2>
 
     <ul class="details">
-      <li>Title: <?php echo htmlentities($note['title']) ?></li>
-      <li>Description: <?php echo htmlentities($note['description']) ?></li>
-      <li>Created time: <?php echo htmlentities($note['inserted_ts']) ?></li>
-      <li>Last update time: <?php echo htmlentities($note['updated_ts'] ?? null) ?></li>
+      <li>Title: <?php echo $note['title'] ?></li>
+      <li>Description: <?php echo $note['description'] ?></li>
+      <li>Created time: <?php echo $note['inserted_ts'] ?></li>
+      <li>Last update time: <?php echo $note['updated_ts'] ?? "-" ?></li>
     </ul>
 
   <?php else : ?>

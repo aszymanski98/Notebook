@@ -30,4 +30,5 @@ try {
   echo "<h3>" . $e->getMessage() . "</h3>";
 } catch (\Throwable $e) {
   echo "<h1>An error has occurred in the application</h1>";
+  //dump($e);
 }

@@ -46,11 +46,11 @@
         <tbody>
           <?php foreach ($params['notes'] ?? [] as $note) : ?>
             <tr>
-              <td style="display: none;"><?php echo (int) $note['id'] ?></td>
-              <td><?php echo htmlentities($note['title']) ?></td>
-              <td><?php echo htmlentities($note['inserted_ts']) ?></td>
+              <td style="display: none;"><?php echo $note['id'] ?></td>
+              <td><?php echo $note['title'] ?></td>
+              <td><?php echo $note['inserted_ts'] ?></td>
               <td>
-                <a href="/?action=show&id=<?php echo (int) $note['id'] ?>"><button>Show</button></a>
+                <a href="/?action=show&id=<?php echo $note['id'] ?>"><button>Show</button></a>
               </td>
             </tr>
           <?php endforeach ?>
