@@ -10,7 +10,7 @@
             break;
 
           case 'missingNoteId':
-            echo "Invalid note's id number";
+            echo "Invalid note's identification data";
             break;
         }
       }
