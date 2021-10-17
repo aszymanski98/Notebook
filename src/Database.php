@@ -26,7 +26,10 @@ class Database
   public function getNote(int $id): array
   {
     try {
-      $query = "SELECT * FROM notes WHERE id = $id";
+      $query = "SELECT * 
+      FROM notes
+      WHERE id = $id";
+
       $result = $this->conn->query($query);
       $note = $result->fetch(\PDO::FETCH_ASSOC);
     } catch (\Throwable $e) {
@@ -43,7 +46,9 @@ class Database
   public function getNotes(): array
   {
     try {
-      $query = "SELECT id, title, inserted_ts FROM notes";
+      $query = "SELECT id, title, inserted_ts
+      FROM notes";
+
       $result = $this->conn->query($query);
       return $result->fetchAll(\PDO::FETCH_ASSOC);
     } catch (\Throwable $e) {
@@ -57,11 +62,28 @@ class Database
       $title = $this->conn->quote($data["title"]);
       $description = $this->conn->quote($data["description"]);
 
-      $query = "INSERT INTO notes(title, description) VALUES ($title, $description)";
+      $query = "INSERT INTO notes(title, description) 
+      VALUES ($title, $description)";
 
       $this->conn->exec($query);
     } catch (\Throwable $e) {
       throw new StorageException('Failed to create new note', 400, $e);
+    }
+  }
+
+  public function editNote(int $id, array $data): void
+  {
+    try {
+      $title = $this->conn->quote($data['title']);
+      $description = $this->conn->quote($data['description']);
+
+      $query = "UPDATE notes
+      SET title = $title, description = $description, updated_ts = current_timestamp
+      WHERE id = $id";
+
+      $this->conn->exec($query);
+    } catch (\Throwable $e) {
+      throw new StorageException('Failed to edit note', 400, $e);
     }
   }
 

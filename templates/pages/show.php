@@ -13,6 +13,8 @@
       <li>Last update time: <?php echo $note['updated_ts'] ?? "-" ?></li>
     </ul>
 
+    <a href="/?action=edit&id=<?php echo $note['id'] ?>"><button>Edit note</button></a>
+
   <?php else : ?>
 
     <div style="padding: 20px 10px;">

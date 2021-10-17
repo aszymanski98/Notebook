@@ -24,6 +24,10 @@
           case 'created':
             echo 'Note has been created';
             break;
+
+          case 'edited':
+            echo 'Note has been updated';
+            break;
         }
       }
       ?>
