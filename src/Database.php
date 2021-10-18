@@ -43,11 +43,20 @@ class Database
     return $note;
   }
 
-  public function getNotes(): array
+  public function getNotes(string $sortBy, string $sortOrder): array
   {
     try {
+      if (!in_array($sortBy, ['inserted_ts', 'title'])) {
+        $sortBy = 'inserted_ts';
+      }
+
+      if (!in_array($sortOrder, ['asc', 'desc'])) {
+        $sortOrder = 'desc';
+      }
+
       $query = "SELECT id, title, inserted_ts
-      FROM notes";
+      FROM notes
+      ORDER BY $sortBy $sortOrder";
 
       $result = $this->conn->query($query);
       return $result->fetchAll(\PDO::FETCH_ASSOC);
@@ -68,6 +77,17 @@ class Database
       $this->conn->exec($query);
     } catch (\Throwable $e) {
       throw new StorageException('Failed to create new note', 400, $e);
+    }
+  }
+
+  public function deleteNote(int $id): void
+  {
+    try {
+      $query = "DELETE FROM notes WHERE id = $id LIMIT 1";
+
+      $this->conn->exec($query);
+    } catch (\Throwable $e) {
+      throw new StorageException('Failed to delete note', 400, $e);
     }
   }
 

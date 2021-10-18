@@ -3,7 +3,7 @@
 body {
   font-family: "Montserrat", sans-serif;
   color: #333;
-  background-color: #ddd;
+  background-color: white;
   margin: 0;
 }
 
@@ -22,7 +22,7 @@ h1 {
   color: #fff;
   text-transform: uppercase;
   text-align: center;
-  background-color: cadetblue;
+  background-color: #978cdc;
   margin: 0px;
   padding: 20px 0;
 }
@@ -81,7 +81,7 @@ ul {
 
 ul a {
   display: block;
-  color: cadetblue;
+  color: #978cdc;
   font-size: 18px;
   text-transform: uppercase;
   padding: 16px 0;
@@ -137,8 +137,8 @@ form input[type="url"]:focus,
 form input[type="email"]:focus,
 form textarea:focus,
 form select:focus {
-  box-shadow: 0 0 8px #88d5e9;
-  border: 1px solid #88d5e9;
+  box-shadow: 0 0 8px #978cdc;
+  border: 1px solid #978cdc;
 }
 
 form .field-long {
@@ -152,7 +152,7 @@ form .field-textarea {
 
 form input[type="submit"],
 form input[type="button"] {
-  background: cadetblue;
+  background: #978cdc;
   border: none;
   color: #fff;
   font-size: 18px;
@@ -163,7 +163,7 @@ form input[type="button"] {
 
 form input[type="submit"]:hover,
 form input[type="button"]:hover {
-  background: #4691a4;
+  background: #978cdc;
   box-shadow: none;
 }
 
@@ -194,12 +194,12 @@ form > div:first-child > label:first-child > input {
 }
 
 form > div:first-child > label:first-child > input:focus {
-  box-shadow: 0 0 0px 2px cadetblue;
+  box-shadow: 0 0 0px 2px #978cdc;
 }
 
 .footer {
   margin-top: 20px;
-  background-color: cadetblue;
+  background-color: #978cdc;
   padding-bottom: 30px;
 }
 
@@ -219,20 +219,20 @@ table {
 
 .tbl-header {
   margin-top: 20px;
-  background-color: cadetblue;
+  background-color: #978cdc;
   color: white;
 }
 
 .tbl-content {
   overflow-x: auto;
   margin-top: 0px;
-  border-bottom: 58px solid cadetblue;
+  border-bottom: 58px solid #978cdc;
   color: #222;
   background-color: white;
 }
 
 h2 {
-  background-color: cadetblue;
+  background-color: #978cdc;
   padding: 20px 15px;
   text-align: center;
   font-weight: 500;
@@ -301,14 +301,14 @@ td {
 
 button {
   border: none;
-  background-color: cadetblue;
+  background-color: #978cdc;
   padding: 5px 10px;
   color: white;
   cursor: pointer;
 }
 
 button:hover {
-  background-color: #4691a4;
+  background-color: #5548a4;
 }
 
 form.note-form li label {
@@ -335,4 +335,22 @@ form.note-form textarea {
 .delete button,
 .show button {
   padding: 8px 12px;
+}
+
+.settings-form {
+  padding: 20px 0;
+  background-color: #8ca9dc;
+  color: white;
+}
+
+.settings-form label {
+  padding: 10px;
+  display: inline;
+  cursor: pointer;
+  margin: 0;
+  text-transform: none !important;
+}
+
+.settings-form input {
+  margin-left: 5px !important;
 }

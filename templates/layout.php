@@ -16,7 +16,7 @@
     <h1><i class="far fa-clipboard"></i>My notes</h1>
 
     <div class="container">
-      <ul>
+      <ul class="menu">
         <li><a href="/">Main page</a></li>
         <li><a href="/?action=create">New note</a></li>
       </ul>
