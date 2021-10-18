@@ -43,9 +43,12 @@ class Database
     return $note;
   }
 
-  public function getNotes(string $sortBy, string $sortOrder): array
+  public function getNotes(int $pageNumber, int $pageSize, string $sortBy, string $sortOrder): array
   {
     try {
+      $limit = $pageSize;
+      $offset = ($pageNumber - 1) * $pageSize;
+
       if (!in_array($sortBy, ['inserted_ts', 'title'])) {
         $sortBy = 'inserted_ts';
       }
@@ -56,12 +59,30 @@ class Database
 
       $query = "SELECT id, title, inserted_ts
       FROM notes
-      ORDER BY $sortBy $sortOrder";
+      ORDER BY $sortBy $sortOrder
+      LIMIT $offset, $limit";
 
       $result = $this->conn->query($query);
       return $result->fetchAll(\PDO::FETCH_ASSOC);
     } catch (\Throwable $e) {
       throw new StorageException('Failed getting notes data', 400, $e);
+    }
+  }
+
+  public function getCount(): int
+  {
+    try {
+      $query = "SELECT COUNT(*) AS cn FROM notes";
+      $result = $this->conn->query($query);
+      $result = $result->fetch(\PDO::FETCH_ASSOC);
+
+      if ($result === false) {
+        throw new StorageException('Failed getting notes count', 400);
+      }
+
+      return (int) $result['cn'];
+    } catch (\Throwable $e) {
+      throw new StorageException('Failed counting notes', 400, $e);
     }
   }
 

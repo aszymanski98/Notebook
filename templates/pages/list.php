@@ -41,6 +41,12 @@
     $sort = $params['sort'] ?? [];
     $by = $sort['by'] ?? 'inserted_ts';
     $order = $sort['order'] ?? 'desc';
+
+    $page = $params['page'] ?? [];
+    $size = (int) $page['size'] ?? 10;
+    $currentPage = (int) $page['number'] ?? 1;
+    $pages = (int) $page['pages'] ?? 1;
+
     ?>
 
     <form class="settings-form" action="/" method="GET">
@@ -48,9 +54,20 @@
         <label>Title:<input type="radio" name="sortby" value="title" <?php echo $by === 'title' ? 'checked' : '' ?>></label>
         <label>Date:<input type="radio" name="sortby" value="inserted_ts" <?php echo $by === 'inserted_ts' ? 'checked' : '' ?>></label>
       </div>
-      <div>Sort order:
+
+      <div style="margin-bottom: 10px;">Sort order:
         <label>Ascending:<input type="radio" name="sortorder" value="asc" <?php echo $order === 'asc' ? 'checked' : '' ?>></label>
         <label>Descending:<input type="radio" name="sortorder" value="desc" <?php echo $order === 'desc' ? 'checked' : '' ?>></label>
+      </div>
+
+      <div style="margin-bottom: 10px;">Page size:
+
+        <select name="pagesize">
+          <option value="1" <?php echo $size === 1 ? 'selected' : '' ?>>1</option>
+          <option value="5" <?php echo $size === 5 ? 'selected' : '' ?>>5</option>
+          <option value="10" <?php echo $size === 10 ? 'selected' : '' ?>>10</option>
+          <option value="25" <?php echo $size === 25 ? 'selected' : '' ?>>25</option>
+        </select>
       </div>
 
       <button type="submit">Sort</button>
@@ -85,5 +102,37 @@
         </tbody>
       </table>
     </div>
+
+    <?php
+    $paginationUrl = "&pagesize=$size?sortby=$by&sortorder=$order";
+    ?>
+
+    <ul class="pagination">
+      <?php if ($currentPage !== 1) : ?>
+        <li>
+          <a href="/?page=<?php echo ($currentPage - 1)  . $paginationUrl ?>">
+            <button>
+              < </button>
+          </a>
+        </li>
+      <?php endif; ?>
+
+      <?php for ($i = 1; $i <= $pages; $i++) : ?>
+        <li>
+          <a href="/?page=<?php echo $i . $paginationUrl ?>">
+            <button><?php echo $i ?></button>
+          </a>
+        </li>
+      <?php endfor; ?>
+
+      <?php if ($currentPage < $pages) : ?>
+        <li>
+          <a href="/?page=<?php echo $currentPage + 1 . $paginationUrl ?>">
+            <button>
+              > </button>
+          </a>
+        </li>
+      <?php endif; ?>
+    </ul>
   </section>
 </div>

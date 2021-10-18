@@ -351,6 +351,10 @@ form.note-form textarea {
   text-transform: none !important;
 }
 
+.settings-form select {
+  margin: 10px;
+}
+
 .settings-form input {
   margin-left: 5px !important;
 }
