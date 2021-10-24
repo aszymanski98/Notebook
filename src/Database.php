@@ -43,6 +43,53 @@ class Database
     return $note;
   }
 
+  public function searchNotes(string $phrase, int $pageNumber, int $pageSize, string $sortBy, string $sortOrder): array
+  {
+    try {
+      $limit = $pageSize;
+      $offset = ($pageNumber - 1) * $pageSize;
+
+      if (!in_array($sortBy, ['inserted_ts', 'title'])) {
+        $sortBy = 'inserted_ts';
+      }
+
+      if (!in_array($sortOrder, ['asc', 'desc'])) {
+        $sortOrder = 'desc';
+      }
+
+      $phrase = $this->conn->quote('%' . $phrase . '%', \PDO::PARAM_STR);
+
+      $query = "SELECT id, title, inserted_ts
+      FROM notes
+      WHERE title LIKE ($phrase)
+      ORDER BY $sortBy $sortOrder
+      LIMIT $offset, $limit";
+
+      $result = $this->conn->query($query);
+      return $result->fetchAll(\PDO::FETCH_ASSOC);
+    } catch (\Throwable $e) {
+      throw new StorageException('Failed searching notes', 400, $e);
+    }
+  }
+
+  public function getSearchCount(string $phrase): int
+  {
+    try {
+      $phrase = $this->conn->quote('%' . $phrase . '%', \PDO::PARAM_STR);
+      $query = "SELECT COUNT(*) AS cn FROM notes WHERE title LIKE ($phrase)";
+      $result = $this->conn->query($query);
+      $result = $result->fetch(\PDO::FETCH_ASSOC);
+
+      if ($result === false) {
+        throw new StorageException('Failed getting notes count', 400);
+      }
+
+      return (int) $result['cn'];
+    } catch (\Throwable $e) {
+      throw new StorageException('Failed counting notes', 400, $e);
+    }
+  }
+
   public function getNotes(int $pageNumber, int $pageSize, string $sortBy, string $sortOrder): array
   {
     try {
