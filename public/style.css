@@ -1,112 +1,112 @@
 @import url("https://fonts.googleapis.com/css?family=Montserrat:400,700&display=swap&subset=latin-ext");
 
 body {
-  font-family: "Montserrat", sans-serif;
-  color: #333;
-  background-color: white;
-  margin: 0;
+    font-family: "Montserrat", sans-serif;
+    color: #333;
+    background-color: white;
+    margin: 0;
 }
 
 .wrapper {
-  width: 100%;
-  max-width: 2560px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  background: white;
+    width: 100%;
+    max-width: 2560px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    background: white;
 }
 
 h1 {
-  font-size: 44px;
-  color: #fff;
-  text-transform: uppercase;
-  text-align: center;
-  background-color: #978cdc;
-  margin: 0px;
-  padding: 20px 0;
+    font-size: 44px;
+    color: #fff;
+    text-transform: uppercase;
+    text-align: center;
+    background-color: #978cdc;
+    margin: 0px;
+    padding: 20px 0;
 }
 
 .far {
-  margin-right: 20px;
+    margin-right: 20px;
 }
 
 .details {
-  padding: 20px 10px;
+    padding: 20px 10px;
 }
 
 .details li {
-  padding: 10px;
+    padding: 10px;
 }
 
 form {
-  background-color: white;
-  padding: 20px 10px;
-  color: #222;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  height: 100%;
+    background-color: white;
+    padding: 20px 10px;
+    color: #222;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100%;
 }
 
 form li {
-  padding: 0;
-  display: block;
-  list-style: none;
-  margin: 10px 0 0 0;
+    padding: 0;
+    display: block;
+    list-style: none;
+    margin: 10px 0 0 0;
 }
 
 form label {
-  text-align: center;
-  font-weight: 300;
-  font-size: 14px;
-  margin: 10px 0px;
-  padding: 0px;
-  display: block;
-  color: #222;
-  font-weight: normal;
+    text-align: center;
+    font-weight: 300;
+    font-size: 14px;
+    margin: 10px 0px;
+    padding: 0px;
+    display: block;
+    color: #222;
+    font-weight: normal;
 }
 
 ul {
-  display: block;
-  width: 100%;
-  background-color: white;
-  margin: 0;
-  list-style: none;
-  padding: 0;
-  display: flex;
-  justify-content: space-evenly;
-  flex-direction: row;
+    display: block;
+    width: 100%;
+    background-color: white;
+    margin: 0;
+    list-style: none;
+    padding: 0;
+    display: flex;
+    justify-content: space-evenly;
+    flex-direction: row;
 }
 
 ul a {
-  display: block;
-  color: #978cdc;
-  font-size: 18px;
-  text-transform: uppercase;
-  padding: 16px 0;
-  text-decoration: none;
+    display: block;
+    color: #978cdc;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 16px 0;
+    text-decoration: none;
 }
 
 ul a:hover {
-  font-weight: bold;
+    font-weight: bold;
 }
 
 .container {
-  display: flex;
-  flex-direction: column;
-  align-items: stretch;
-  flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    flex-grow: 1;
 }
 
 .details {
-  flex-direction: column;
+    flex-direction: column;
 }
 
 .page {
-  width: 100%;
-  height: 100%;
-  text-align: center;
+    width: 100%;
+    height: 100%;
+    text-align: center;
 }
 
 form input[type="text"],
@@ -119,12 +119,12 @@ form input[type="url"],
 form input[type="email"],
 textarea,
 select {
-  box-sizing: border-box;
-  border: 1px solid #bebebe;
-  padding: 7px;
-  margin: 0px;
-  transition: box-shadow 0.3s ease-in-out;
-  outline: none;
+    box-sizing: border-box;
+    border: 1px solid #bebebe;
+    padding: 7px;
+    margin: 0px;
+    transition: box-shadow 0.3s ease-in-out;
+    outline: none;
 }
 
 form input[type="text"]:focus,
@@ -137,224 +137,224 @@ form input[type="url"]:focus,
 form input[type="email"]:focus,
 form textarea:focus,
 form select:focus {
-  box-shadow: 0 0 8px #978cdc;
-  border: 1px solid #978cdc;
+    box-shadow: 0 0 8px #978cdc;
+    border: 1px solid #978cdc;
 }
 
 form .field-long {
-  width: 100%;
-  max-width: 500px;
+    width: 100%;
+    max-width: 500px;
 }
 
 form .field-textarea {
-  height: 200px;
+    height: 200px;
 }
 
 form input[type="submit"],
 form input[type="button"] {
-  background: #978cdc;
-  border: none;
-  color: #fff;
-  font-size: 18px;
-  text-transform: uppercase;
-  padding: 15px 40px;
-  margin-top: 35px;
+    background: #978cdc;
+    border: none;
+    color: #fff;
+    font-size: 18px;
+    text-transform: uppercase;
+    padding: 15px 40px;
+    margin-top: 35px;
 }
 
 form input[type="submit"]:hover,
 form input[type="button"]:hover {
-  background: #978cdc;
-  box-shadow: none;
+    background: #978cdc;
+    box-shadow: none;
 }
 
 form .required {
-  color: red;
+    color: red;
 }
 
 form > div {
-  font-weight: bold;
-  margin-right: 20px;
-  margin-bottom: 20px;
+    font-weight: bold;
+    margin-right: 20px;
+    margin-bottom: 20px;
 }
 
 form > div:first-child {
-  margin-bottom: 20px;
+    margin-bottom: 20px;
 }
 
 form > div:first-child > label:first-child {
-  text-transform: uppercase;
-  font-weight: normal;
+    text-transform: uppercase;
+    font-weight: normal;
 }
 
 form > div:first-child > label:first-child > input {
-  margin-left: 14px;
-  font-family: montserrat;
-  outline: none;
-  font-size: 22px;
+    margin-left: 14px;
+    font-family: montserrat;
+    outline: none;
+    font-size: 22px;
 }
 
 form > div:first-child > label:first-child > input:focus {
-  box-shadow: 0 0 0px 2px #978cdc;
+    box-shadow: 0 0 0px 2px #978cdc;
 }
 
 .footer {
-  margin-top: 20px;
-  background-color: #978cdc;
-  padding-bottom: 30px;
+    margin-top: 20px;
+    background-color: #978cdc;
+    padding-bottom: 30px;
 }
 
 .footer p {
-  text-align: center;
-  color: #ddd;
+    text-align: center;
+    color: #ddd;
 }
 
 .list {
-  margin: 0;
+    margin: 0;
 }
 
 table {
-  width: 100%;
-  table-layout: fixed;
+    width: 100%;
+    table-layout: fixed;
 }
 
 .tbl-header {
-  margin-top: 20px;
-  background-color: #978cdc;
-  color: white;
+    margin-top: 20px;
+    background-color: #978cdc;
+    color: white;
 }
 
 .tbl-content {
-  overflow-x: auto;
-  margin-top: 0px;
-  border-bottom: 58px solid #978cdc;
-  color: #222;
-  background-color: white;
+    overflow-x: auto;
+    margin-top: 0px;
+    border-bottom: 58px solid #978cdc;
+    color: #222;
+    background-color: white;
 }
 
 h2 {
-  background-color: #978cdc;
-  padding: 20px 15px;
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  color: #fff;
-  text-transform: uppercase;
-  margin: 0;
+    background-color: #978cdc;
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
+    margin: 0;
 }
 
 th {
-  padding: 20px 15px;
-  text-align: center;
-  font-weight: 500;
-  font-size: 14px;
-  color: #fff;
-  text-transform: uppercase;
+    padding: 20px 15px;
+    text-align: center;
+    font-weight: 500;
+    font-size: 14px;
+    color: #fff;
+    text-transform: uppercase;
 }
 
 td {
-  padding: 15px;
-  text-align: center;
-  vertical-align: middle;
-  font-weight: 300;
-  font-size: 14px;
-  color: #222;
+    padding: 15px;
+    text-align: center;
+    vertical-align: middle;
+    font-weight: 300;
+    font-size: 14px;
+    color: #222;
 }
 
 .error {
-  text-align: center;
-  font-weight: 700;
-  color: #ff0000;
+    text-align: center;
+    font-weight: 700;
+    color: #ff0000;
 }
 
 .message {
-  text-align: center;
-  font-weight: 700;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  background-color: white;
+    text-align: center;
+    font-weight: 700;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: white;
 }
 
 .pagination {
-  list-style: none;
-  display: flex;
-  flex-wrap: wrap;
-  flex-direction: row;
-  justify-content: center;
-  align-items: auto;
-  align-content: center;
+    list-style: none;
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    justify-content: center;
+    align-items: auto;
+    align-content: center;
 }
 
 .pagination li {
-  flex: 0 0 auto;
-  margin: 10px;
+    flex: 0 0 auto;
+    margin: 10px;
 }
 
 .pagination li button {
-  cursor: pointer;
+    cursor: pointer;
 }
 
 .settings-form label {
-  display: inline-block;
+    display: inline-block;
 }
 
 button {
-  border: none;
-  background-color: #978cdc;
-  padding: 5px 10px;
-  color: white;
-  cursor: pointer;
+    border: none;
+    background-color: #978cdc;
+    padding: 5px 10px;
+    color: white;
+    cursor: pointer;
 }
 
 button:hover {
-  background-color: #5548a4;
+    background-color: #5548a4;
 }
 
 form.note-form li label {
-  font-size: 18px;
+    font-size: 18px;
 }
 
 form.note-form input,
 form.note-form textarea {
-  font-size: 16px;
+    font-size: 16px;
 }
 
 .delete,
 .show {
-  padding: 10px;
-  background-color: white;
-  color: #222;
+    padding: 10px;
+    background-color: white;
+    color: #222;
 }
 
 .delete ul,
 .show ul {
-  list-style: none;
+    list-style: none;
 }
 
 .delete button,
 .show button {
-  padding: 8px 12px;
+    padding: 8px 12px;
 }
 
 .settings-form {
-  padding: 20px 0;
-  background-color: #8ca9dc;
-  color: white;
+    padding: 20px 0;
+    background-color: #8ca9dc;
+    color: white;
 }
 
 .settings-form label {
-  padding: 10px;
-  display: inline;
-  cursor: pointer;
-  margin: 0;
-  text-transform: none !important;
+    padding: 10px;
+    display: inline;
+    cursor: pointer;
+    margin: 0;
+    text-transform: none !important;
 }
 
 .settings-form select {
-  margin: 10px;
+    margin: 10px;
 }
 
 .settings-form input {
-  margin-left: 5px !important;
+    margin-left: 5px !important;
 }

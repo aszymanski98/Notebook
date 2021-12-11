@@ -2,11 +2,5 @@
 
 declare(strict_types=1);
 
-return [
-  'db' => [
-    'host' => 'localhost',
-    'database' => 'notes',
-    'user' => 'user_notes',
-    'password' => 'chY4JTm./m(Q)Uui',
-  ]
-];
+return $db = "sqlite:" . __DIR__ . '/../' . 'notes.db';
+

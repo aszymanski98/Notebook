@@ -4,69 +4,77 @@ declare(strict_types=1);
 
 namespace App\Controller;
 
-use App\Database;
+use App\Model\NoteModel;
 use App\View;
 use App\Request;
 use App\Exception\ConfigurationException;
+use App\Exception\StorageException;
 
 abstract class AbstractController
 {
-  protected const DEFAULT_PAGE = 'list';
+    protected const DEFAULT_PAGE = 'list';
 
-  protected static array $configuration = [];
+    protected static $configuration;
 
-  protected Database $database;
-  protected Request $request;
-  protected View $view;
+    protected NoteModel $noteModel;
+    protected Request $request;
+    protected View $view;
 
-  public static function initConfiguration(array $configuration): void
-  {
-    self::$configuration = $configuration;
-  }
-
-  public function __construct(Request $request)
-  {
-    if (empty(self::$configuration['db'])) {
-      throw new ConfigurationException("Configuration error");
+    public static function initConfiguration($configuration): void
+    {
+        self::$configuration = $configuration;
     }
 
-    $this->database = new Database(self::$configuration['db']);
+    public function __construct(Request $request)
+    {
+        if (empty(self::$configuration)) {
+            throw new ConfigurationException("Configuration error");
+        }
 
-    $this->request = $request;
-    $this->view = new View();
-  }
+        $this->noteModel = new NoteModel(self::$configuration);
 
-  final public function run(): void
-  {
-    $action = $this->action() . 'Action';
-
-    if (!method_exists($this, $action)) {
-      $action = self::DEFAULT_PAGE . 'Action';
+        $this->request = $request;
+        $this->view = new View();
     }
 
-    $this->$action();
-  }
+    final public function run(): void
+    {
+        try {
+            $action = $this->action() . 'Action';
 
-  final protected function redirect(string $to, array $params): void
-  {
-    $location = $to;
+            if (!method_exists($this, $action)) {
+                $action = self::DEFAULT_PAGE . 'Action';
+            }
 
-    if (count($params)) {
-      $queryParams = [];
-      foreach ($params as $key => $value) {
-        $queryParams[] = urlencode($key) . '=' . urlencode($value);
-      }
-
-      $queryParams = implode('&', $queryParams);
-      $location .= '?' . $queryParams;
+            $this->$action();
+        } catch (StorageException $e) {
+            $this->view->render(
+                'error', ['message' => $e->getMessage()]);
+        } catch (NotFoundException $e) {
+            $this->redirect("/", ['error' => 'noteNotFound']);
+        }
     }
 
-    header("Location: $location");
-    exit;
-  }
+    final protected function redirect(string $to, array $params): void
+    {
+        $location = $to;
 
-  private function action(): string
-  {
-    return $this->request->getParam('action', self::DEFAULT_PAGE);
-  }
+        if (count($params)) {
+            $queryParams = [];
+            foreach ($params as $key => $value) {
+                $queryParams[] = urlencode($key) . '=' . urlencode($value);
+            }
+
+            $queryParams = implode('&', $queryParams);
+            $location .= '?' . $queryParams;
+        }
+
+        header("Location: $location");
+        exit;
+    }
+
+    private function action(): string
+    {
+        return $this->request->getParam('action', self::DEFAULT_PAGE);
+    }
 }
