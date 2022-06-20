@@ -5,7 +5,7 @@ Simple app made in PHP according to OOP model with full CRUD functionality.
 ## Dependencies
 
 * PHP 7.4.27
-* SQL
+* MySQL
 
 ## Executing program
 
